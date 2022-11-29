@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
 
 <!-- Задание 1 -->
@@ -64,7 +65,7 @@
     
         $resArr1 = print_r($myArr1,true);
 
-        for($j=0; $j<=$random_range1-1; $j++){
+        for($j=0; $j<count($myArr1); $j++){
             if(($j+1)%2==0){
                 $arr_even[] = $myArr1[$j];
             }else{
@@ -76,7 +77,7 @@
 
         $res_arr_odd = print_r($arr_odd,true);
 
-        $result = array_merge($arr_odd ,$arr_even);
+        $result =  array_merge($arr_odd ,$arr_even);
 
         $print_result = print_r($result,true);
 
@@ -85,6 +86,56 @@
         echo "<p>Массив четных $res_arr_even</p>";
         echo "<p>Объединенный массив $print_result</p>";
 
+   ?>
+
+   <h2>Задание 3</h2>
+
+   <?php 
+    
+    $array3 = [
+        [1,3,2,2,6,0,3],
+        [2,1,2,3,6,2,3],
+        [4,3,2,2,6,8,3],
+        [6,0,2,5,6,0,0]
+    ];
+
+    // for($i=0;$i<count($array3);$i++){
+    //     for($j=0;$j<count(($array3[$i]));$j++){
+    //         if($array3[$i][$j] == 0){
+    //             echo '<p> в столбце $j есть</p>'
+    //         }
+    //     }
+    // }
+
+    // for($i=0;$i<count(($array3[0]));$i++){
+    //     $s=1;
+    //     for($j=0;$j<count($array3);$j++){
+            
+    //         if($array3[$j][$i] == 0){
+    //             echo "<p> ноль в столбце $i</p>";
+    //             break;
+    //         }else{
+    //             $s=$s*$array3[$j][$i];
+    //         } 
+            
+    //     }
+    //     echo "<p>произведение $i столбца равно $s</p>";
+    // }
+
+
+    for($i=0;$i<count($array3[0]);$i++){
+        $col = array_column($array3,$i);
+        if(!in_array(0,$col)){
+            $s =1;
+            for($j=0;$j<count($col);$j++){
+                $s*=$col[$j];
+            }
+            echo "<p>Произведение $i столбца = $s<p/>";
+        }else {
+            echo "<p>В столбце $i есть ноль<p/>";
+        }
+    }
+   
    ?>
 
 </body>
