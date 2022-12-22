@@ -1,0 +1,57 @@
+body {
+    font-family:sans-serif;
+}
+
+.form{
+    background-color:#eee2dc;
+    padding:20px 40px;
+    width:max-content;
+}
+
+.input_container{
+    margin-bottom:20px;
+    display:flex;
+    flex-direction:column;
+}
+
+.textArea{
+    resize:none;
+    width:400px;
+    /* height:50px; */
+}
+
+.textArea, .inputArea{
+    border:1px solid #123C69;
+    background-color:#EDC7B7;
+    outline:none;
+    padding:10px 15px;
+    font-size:20px;
+}
+
+.inputArea{
+    width:200px;
+    /* height:40px; */
+}
+
+.button{
+    font-size:20px;
+    font-weight:bold;
+    background-color:#123C69;
+    border:none;
+    padding:10px 20px;
+    color: #EEE2DC;
+}
+
+.pagination{
+    margin-top:40px;
+}
+
+
+.pagination_link{
+    padding:5px 5px;
+    margin-right:5px
+}
+
+.visit_link{
+    color:red;
+}
