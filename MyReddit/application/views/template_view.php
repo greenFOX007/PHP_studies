@@ -21,6 +21,13 @@
 	</head>
 	<body>
 		<div class="container">
+			<?php 
+				if($_SESSION['isLogin']=='true'){
+					if(isset($_SESSION['idgroup']) && $_SESSION['idgroup']==1){ ?>
+					<a href="/admin">Администрирование</a>
+				<?php	}
+				}
+			?>
 			<header class="header">	
 				<a class="logo_link" href="/"><p>MyReddit</p></a>
 				<div class="login">
