@@ -4,10 +4,12 @@
 	margin: 0;
 	padding: 0;
 	box-sizing:border-box;
+	
 }
 
 p,h1,h2,h3,h4,h5{
 	word-wrap:break-word;
+	overflow-x: hidden;
 }
 
 button,a{
@@ -159,9 +161,9 @@ h4 {
 	outline:none;
 }
 
-.news_creator_form input{
+/* .news_creator_form input{
 	width
-}
+} */
 
 .news_creator_form select{
 	width:150px;
@@ -172,11 +174,12 @@ h4 {
 	border:none;
 	padding:20px 50px;
 	border-radius:5px;
+	
 }
 
 .picture_form{
 	width:300px;
-	background-color:transparent !importantВы;
+	background-color:transparent !important;
 }
 
 .news_creator_form textarea {

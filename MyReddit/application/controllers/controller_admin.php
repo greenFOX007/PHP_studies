@@ -11,9 +11,7 @@ class Controller_Admin extends Controller
 	
 	function action_index()
 	{
-		session_start();
 		
-		unset($_SESSION['lol']);
 	
 		if ( $_SESSION['idgroup'] == 1 )
 		{	
@@ -27,11 +25,11 @@ class Controller_Admin extends Controller
 		}
 
 	}
+
+	
 	function action_allNews()
 	{
-		session_start();
 		
-	
 		if ( $_SESSION['idgroup'] == 1 )
 		{	
 			if(!empty($_GET['fillterBY'])&&!empty($_GET['value'])){
@@ -67,7 +65,7 @@ class Controller_Admin extends Controller
 
 	function action_fillter()
 	{
-		session_start();
+		
 		
 		if ( $_SESSION['idgroup'] == 1 )
 		{	
@@ -93,8 +91,6 @@ class Controller_Admin extends Controller
 
 	function action_moderation()
 	{
-		session_start();
-	
 		if ( $_SESSION['idgroup'] == 1 )
 		{	
 			if(!empty($_GET['fillterBY'])&&!empty($_GET['value'])){
@@ -125,14 +121,24 @@ class Controller_Admin extends Controller
 
 	function action_users()
 	{
-		session_start();
-		
-
 		if ( $_SESSION['idgroup'] == 1 )
 		{	
-			$page = intval($_GET['p'] ?? 1);
-			$data = $this->model->get_data_users($page);
-			$this->view->generate('admin_users_view.php', 'template_admin_view.php',$data);
+			if(!empty($_GET['fillterBY'])&&!empty($_GET['value'])){
+				$fillterBY = $_GET['fillterBY'];
+				$value = $_GET['value'];
+
+				$_SESSION['url']=$_SERVER['REQUEST_URI'];
+
+				$page = intval($_GET['p'] ?? 1);
+				$data = $this->model->get_data_usersFillter($fillterBY,$value,$page);
+				$this->view->generate('admin_users_view.php', 'template_admin_users_view.php',$data);
+			}else{
+				unset($_SESSION['url']);
+				$page = intval($_GET['p'] ?? 1);
+				$data = $this->model->get_data_users($page);
+				$this->view->generate('admin_users_view.php', 'template_admin_users_view.php',$data);
+			}
+			
 		}
 		else
 		{
@@ -140,7 +146,71 @@ class Controller_Admin extends Controller
 		}
 
 	}
+
+	function action_detailNews(){
+		$idNews = intval($_GET['idNews']);
+		$data = $this->model->get_data_detailNews($idNews);
+		$this->view->generate('admin_detail_news.php','template_admin_view.php',$data);
+	}
+
+
+	function action_editNews(){
+		$idNews = intval($_GET['idNews']);
+		$data = $this->model->get_data_detailNews($idNews);
+		$this->view->generate('admin_edit_news.php','template_admin_view.php',$data);
+	}
+
+	function action_update_news(){
+
+		// $idNews = intval($_GET['idNews']);
+		$this->model->update_news();
+		
+	}
+
+
+	function action_resetMainFillter(){
+		unset($_SESSION['url']);
+		header("Location: /admin/");
+	}
+
+	function action_resetModerFillter(){
+		unset($_SESSION['url']);
+		header("Location: /admin/moderation");
+	}
+
+	function action_resetUserFillter(){
+		unset($_SESSION['url']);
+		header("Location: /admin/users");
+	}
+
+	function action_deleteNews (){
+			
+		$idNews = $_POST['idNews'];
+			
+		 $this->model->deleteNews($idNews);
+	}
+
+	function action_deleteUser (){
+			
+		$idUser = $_POST['idUser'];
+			
+		 $this->model->deleteUser($idUser);
+	}
 	
+
+	function action_publish(){
+		$idNews = $_POST['idNews'];
+			
+		 $this->model->publishNews($idNews);
+	}
+	
+
+	function action_sendForModerationNews(){
+		$idNews = $_POST['idNews'];
+			
+		 $this->model->sendForModerationNews($idNews);
+	}
+
 	
 
 }

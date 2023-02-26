@@ -28,10 +28,6 @@ class Route
 			$action_name = $routes[2];
 		}
 
-		
-
-
-
 		// добавляем префиксы
 		$model_name = 'Model_'.$controller_name;
 		$controller_name = 'Controller_'.$controller_name;
@@ -65,32 +61,33 @@ class Route
 			правильно было бы кинуть здесь исключение,
 			но для упрощения сразу сделаем редирект на страницу 404
 			*/
-			Route::ErrorPage404();
+			self::ErrorPage404();
 		}
 		
 		// создаем контроллер
 		$controller = new $controller_name;
-		$action = $action_name;
+		// $action = $action_name;
 		
-		if(method_exists($controller, $action))
+		if(method_exists($controller, $action_name))
 		{
 			// вызываем действие контроллера
-			$controller->$action();
+			$controller->$action_name();
 		}
 		else
 		{
 			// здесь также разумнее было бы кинуть исключение
-			Route::ErrorPage404();
+			self::ErrorPage404();
 		}
 	
 	}
 
 	static function ErrorPage404()
 	{
-        $host = 'http://'.$_SERVER['HTTP_HOST'].'/';
-        header('HTTP/1.1 404 Not Found');
-		header("Status: 404 Not Found");
-		header('Location:'.$host.'404');
+        // $host = 'http://'.$_SERVER['HTTP_HOST'].'/';
+        // header('HTTP/1.1 404 Not Found');
+		// header("Status: 404 Not Found");
+		// header('Location:'.$host.'404');
+		include "./application/views/404_view.php";
     }
     
 }

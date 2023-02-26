@@ -1,5 +1,5 @@
 <?php
-	session_start();
+	
 	if(!isset($_SESSION['isLogin'])){
 		$_SESSION['isLogin'] = 'false';
 	}
@@ -38,7 +38,7 @@
 						}elseif($_SESSION['isLogin']=='true'){ ?>
 							<div class='loggined_user_container'>
 								<a class='header_login' href='/profile'><?=isset($_SESSION['name'])?$_SESSION['name']:''?></a>
-								<a class='header_exit' href='/application/request/exit.php'>Выйти</a>
+								<a class='header_exit' href='/authorization/logout'>Выйти</a>
 							</div>
 
 						<?php } ?>
@@ -71,7 +71,7 @@
 						</select>
 						<input class="filter_form_input" type="text" name="value" />
 						<button type="submit" class="form_fillter_btn">Найти</button>
-                        <a href="/application/request/resetModerFillter.php" class="form_fillter_btn">Сбросить</a>
+                        <a href="/admin/resetModerFillter" class="form_fillter_btn">Сбросить</a>
 					</form>
 						<?php include 'application/views/'.$content_view; ?>
 					</div>

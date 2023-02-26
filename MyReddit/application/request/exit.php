@@ -2,6 +2,6 @@
 session_start();
 session_destroy();
 
-$requri = $_SERVER['REQUEST_URI'];
+// $requri = $_SERVER['REQUEST_URI'];
 
-header("Location:$requri");
+header("Location:/");

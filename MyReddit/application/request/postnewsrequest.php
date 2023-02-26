@@ -1,10 +1,6 @@
 <?php
 
-header('Content-type:multipart/form-data; charset=UTF-8');
-
-
-
-
+header('Content-type:text/html; charset=UTF-8');
 
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){

@@ -38,7 +38,7 @@
 						}elseif($_SESSION['isLogin']=='true'){ ?>
 							<div class='loggined_user_container'>
 								<a class='header_login' href='/profile'><?=isset($_SESSION['name'])?$_SESSION['name']:''?></a>
-								<a class='header_exit' href='/application/request/exit.php'>Выйти</a>
+								<a class='header_exit' href='/authorization/logout'>Выйти</a>
 							</div>
 
 						<?php } ?>

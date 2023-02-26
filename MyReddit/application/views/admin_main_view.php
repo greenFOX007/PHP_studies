@@ -1,4 +1,4 @@
-<?php session_start() ?>
+
 <div class="news_container">
     <?php 
         if(is_array($data)){
@@ -26,16 +26,25 @@
                     <div class="news_meta_admin">
                         <div class="news_id_admin"><?=$row['idNews']?></div>
                         <div class="news_category_admin"><?=$row['categoryName']?></div>
-                        <div class="news_title_admin"><?=$row['theme']?></div>
+                        <div class="news_title_admin">
+                            <p class="news_title_admin_p"><?=trim($row['theme'],"\"") ?></p>
+                        </div>
                         <div class="news_create_admin"><?=$row['createDate']?></div>
                         <div class="news_status_admin"><?=$row['moderationStatus']==1?'Опубликовано':'Не опубликовано'?></div>
                     </div>
                     <div class="news_controls_btns">
-                        <a class="control_btn_admin" href="">Просмотреть</a>
-                        <a class="control_btn_admin" href="">Комментарии</a>
-                        <a class="control_btn_admin" href="">Редактировать</a>
-                        <a class="control_btn_admin" href="">Опубликовать</a>
-                        <a class="control_btn_admin" href="">Удалить</a>
+                        <a class="control_btn_admin" href="/admin/detailNews/?idNews=<?=$row['idNews']?>" data-id="<?=$row['idNews']?>" >Просмотреть</a>
+                        <a class="control_btn_admin" data-id="<?=$row['idNews']?>" >Комментарии</a>
+                        <a class="control_btn_admin" href="/admin/editNews/?idNews=<?=$row['idNews']?>" data-id="<?=$row['idNews']?>" >Редактировать</a>
+                        <?php
+                            if($row['moderationStatus']==0){?>
+                                <button onclick='publishNews()' class='control_btn_admin' data-id='<?=$row['idNews']?>' >Опубликовать</button>
+                           <?php }elseif($row['moderationStatus']==1){?>
+                                <button onclick='sendForModerationNews()' class='control_btn_admin' data-id='<?=$row['idNews']?>' >Снять с публикации</button>
+                          <?php  }
+                        ?>
+                       
+                        <button onclick="deleteNews()" class="control_btn_admin" data-id="<?=$row['idNews']?>" >Удалить</button>
                     </div>
                 </div>
                     

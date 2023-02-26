@@ -2,19 +2,81 @@
 
 class Model
 {
-	
-	/*
-		Модель обычно включает методы выборки данных, это могут быть:
-			> методы нативных библиотек pgsql или mysql;
-			> методы библиотек, реализующих абстракицю данных. Например, методы библиотеки PEAR MDB2;
-			> методы ORM;
-			> методы для работы с NoSQL;
-			> и др.
-	*/
+	private static $connect;
 
-	// метод выборки данных
+	public function __construct()
+	{
+		if(!self::$connect){
+			self::$connect = mysqli_connect('localhost', 'root', '', 'myReddit');
+		}
+	}
+
+
 	public function get_data()
 	{
-		// todo
+
 	}
+
+	protected function get_one($query){
+		try{
+			if($result = mysqli_query(self::$connect,$query)){
+				$data = mysqli_fetch_assoc($result);
+				
+			}else{
+				throw new Exception(mysqli_error(self::$connect));
+			}
+
+			return $data;
+		}catch(Throwable $e){
+			echo $e->getMessage();
+		}
+	
+	}
+
+	protected function get_count($query){
+		try{
+			if($result = mysqli_query(self::$connect,$query)){
+				$data = mysqli_fetch_row($result);
+				
+			}else{
+				throw new Exception(mysqli_error(self::$connect));
+			}
+
+			return $data[0];
+
+		}catch(Throwable $e){
+			echo $e->getMessage();
+		}
+	}
+
+	protected function get_many($query){
+		try{
+			if($result = mysqli_query(self::$connect,$query)){
+				$data = mysqli_fetch_all($result,MYSQLI_ASSOC);
+				
+			}else{
+				throw new Exception(mysqli_error(self::$connect));
+			}
+
+			return $data;
+			
+		}catch(Throwable $e){
+			echo $e->getMessage();
+		}
+	}
+
+	protected function execute($query){
+		try{
+			if(!mysqli_query(self::$connect,$query)){
+				throw new Exception(mysqli_error(self::$connect));
+				return false;
+			}else{
+				return true;
+			}
+		}catch(Throwable $e){
+			echo $e->getMessage();
+		}
+	}
+
+
 }

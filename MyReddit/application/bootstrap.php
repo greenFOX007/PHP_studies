@@ -4,7 +4,8 @@
 require_once 'core/model.php';
 require_once 'core/view.php';
 require_once 'core/controller.php';
-
+require('./config.php');
+session_start();
 /*
 Здесь обычно подключаются дополнительные модули, реализующие различный функционал:
 	> аутентификацию

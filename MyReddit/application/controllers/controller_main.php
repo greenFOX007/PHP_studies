@@ -22,6 +22,10 @@ class Controller_Main extends Controller
 		$data = $this->model->get_dataPage($page);		
 		$this->view->generate('main_view.php', 'template_view.php', $data);
 	}
+
+	function action_postNews(){
+		$this->model->post_news();
+	}
 	
 
 	// function action_postNews(){

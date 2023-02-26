@@ -33,7 +33,7 @@
                     </div>
                     <div class="news_controls_btns">
                         <a class="control_btn_admin" href="">Редактировать</a>
-                        <a class="control_btn_admin" href="">Удалить</a>
+                        <button onclick="deleteUser()" class="control_btn_admin" data-id="<?=$row['idUser']?>" >Удалить</button>
                     </div>
                 </div>
                     
