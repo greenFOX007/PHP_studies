@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Фев 16 2023 г., 17:12
+-- Время создания: Мар 02 2023 г., 17:37
 -- Версия сервера: 8.0.30
 -- Версия PHP: 8.1.9
 
@@ -101,27 +101,40 @@ CREATE TABLE `news` (
 --
 
 INSERT INTO `news` (`idNews`, `idCategory`, `theme`, `pictureLink`, `textContent`, `idUser`, `createDate`, `changeDate`, `likeCount`, `moderationStatus`) VALUES
-(150, 1, 'уdfdgdbgdfbdfgdshуdfdgdbgdfbdfgdsh', '140d96c3105f7128e12d90098d0e6187.jpg', 'уdfdgdbgdfbdfgdshуdfdgdbgdfbdfgdshуdfdgdbgdfbdfgdsh', 28, '2023-02-16 14:02:08', NULL, NULL, 1),
-(151, 3, 'fsdgsdg32423545346', '140d96c3105f7128e12d90098d0e6187.jpg', 'fsdgsdg32423545346fsdgsdg32423545346fsdgsdg32423545346fsdgsdg32423545346', 28, '2023-02-16 14:02:23', NULL, NULL, 1),
-(152, 1, 'fsdgsdg32423545346fsdgsdg32423545346fsdgsdg32423545346', NULL, 'fsdgsdg32423545346fsdgsdg32423545346fsdgsdg32423545346fsdgsdg32423545346fsdgsdg32423545346fsdgsdg32423545346fsdgsdg32423545346fsdgsdg32423545346fsdgsdg32423545346fsdgsdg32423545346fsdgsdg32423545346fsdgsdg32423545346fsdgsdg32423545346fsdgsdg32423545346fsdgsdg32423545346', 28, '2023-02-16 14:02:35', NULL, NULL, 1),
-(153, 1, 'fsdgsdg32423545346fsdgsdg32423545346efsgfsdgsdg32423545346fsdgsdg32423545346', NULL, 'fsdgsdg32423545346fsdgsdg32423545346fsdgsdg32423545346fsdgsdg32423545346fsdgsdg32423545346fsdgsdg32423545346fsdgsdg32423545346fsdgsdg32423545346fsdgsdg32423545346fsdgsdg32423545346fsdgsdg32423545346fsdgsdg32423545346fsdgsdg32423545346fsdgsdg32423545346fsdgsdg32423545346fsdgsdg32423545346fsdgsdg32423545346fsdgsdg32423545346fsdgsdg32423545346fsdgsdg32423545346fsdgsdg32423545346fsdgsdg32423545346fsdgsdg32423545346', 28, '2023-02-16 14:02:46', NULL, NULL, 1),
-(154, 1, 'fsdgsdg32423545346fsdgsdg32423545346fsdgsdg32423545346fsdgsdg32423545346', '140d96c3105f7128e12d90098d0e6187.jpg', 'fsdgsdg32423545346fsdgsdg32423545346fsdgsdg32423545346', 28, '2023-02-16 14:02:58', NULL, NULL, 1),
-(155, 1, 'fsdgsdg32423545346', NULL, 'fsdgsdg32423545346fsdgsdg32423545346jknjfsdgsdg32423545346fsdgsdg32423545346jknjfsdgsdg32423545346fsdgsdg32423545346jknjfsdgsdg32423545346fsdgsdg32423545346jknjfsdgsdg32423545346fsdgsdg32423545346jknjfsdgsdg32423545346fsdgsdg32423545346jknjfsdgsdg32423545346fsdgsdg32423545346jknj', 28, '2023-02-16 14:03:11', NULL, NULL, 1),
-(156, 1, 'fsdgsdg32423545346fsdgsdg32423545346jknj', NULL, 'fsdgsdg32423545346fsdgsdg32423545346jknjfsdgsdg32423545346fsdgsdg32423545346jknjfsdgsdg32423545346fsdgsdg32423545346jknjfsdgsdg32423545346fsdgsdg32423545346jknjfsdgsdg32423545346fsdgsdg32423545346jknjfsdgsdg32423545346fsdgsdg32423545346jknjfsdgsdg32423545346fsdgsdg32423545346jknjfsdgsdg32423545346fsdgsdg32423545346jknjfsdgsdg32423545346fsdgsdg32423545346jknjfsdgsdg32423545346fsdgsdg32423545346jknjfsdgsdg32423545346fsdgsdg32423545346jknj', 28, '2023-02-16 14:03:17', NULL, NULL, 1),
-(157, 1, 'fsdgsdg32423545346fsdgsdg32423545346jknj', NULL, 'fsdgsdg32423545346fsdgsdg32423545346jknj', 28, '2023-02-16 14:03:23', NULL, NULL, 1),
-(158, 1, 'fsdgsdg32423545346fsdgsdg32423545346jknjfsdgsdg32423545346fsdgsdg32423545346jknj', NULL, 'fsdgsdg32423545346fsdgsdg32423545346jknjfsdgsdg32423545346fsdgsdg32423545346jknjfsdgsdg32423545346fsdgsdg32423545346jknj', 28, '2023-02-16 14:03:41', NULL, NULL, 1),
+(150, 1, 'LOLKEK', '140d96c3105f7128e12d90098d0e6187.jpg', 'LOLKEK', 28, '2023-02-16 14:02:08', NULL, NULL, 1),
+(151, 3, 'LOLKEK1', '140d96c3105f7128e12d90098d0e6187.jpg', 'LOLKEK1', 28, '2023-02-16 14:02:23', NULL, NULL, 1),
+(158, 1, 'f111', '', 'fsdgsdавыаываsdgsdg32423545346jknjfsdgsdg32423545346fsdgsdg32423545346jknjfsdgsdg32423545346fsdgsdg32423545346jknj', 28, '2023-02-16 14:03:41', '2023-02-23 12:00:50', NULL, 1),
 (159, 1, 'fsdgsdg32423545346fsdgsdg32423545346jknjfsdgsdg32423545346fsdgsdg32423545346jknj', NULL, 'fsdgsdg32423545346fsdgsdg32423545346jknjfsdgsdg32423545346fsdgsdg32423545346jknjfsdgsdg32423545346fsdgsdg32423545346jknjfsdgsdg32423545346fsdgsdg32423545346jknjfsdgsdg32423545346fsdgsdg32423545346jknjfsdgsdg32423545346fsdgsdg32423545346jknjfsdgsdg32423545346fsdgsdg32423545346jknjfsdgsdg32423545346fsdgsdg32423545346jknj', 28, '2023-02-16 14:03:55', NULL, NULL, 1),
-(160, 1, 'fsdgsdg32423545346fsdgsdg32423545346jknjfsdgsdg32423545346fsdgsdg32423545346jknj', '140d96c3105f7128e12d90098d0e6187.jpg', 'fsdgsdg32423545346fsdgsdg32423545346jknjfsdgsdg32423545346fsdgsdg32423545346jknjfsdgsdg32423545346fsdgsdg32423545346jknjfsdgsdg32423545346fsdgsdg32423545346jknjfsdgsdg32423545346fsdgsdg32423545346jknjfsdgsdg32423545346fsdgsdg32423545346jknjfsdgsdg32423545346fsdgsdg32423545346jknj', 28, '2023-02-16 14:04:04', NULL, NULL, 1),
+(160, 1, 'fsdgsdg32423545346fsdgsdg32423545346jknjfsdgsdg32423545346fsdgsdg32423545346jknj', '140d96c3105f7128e12d90098d0e6187.jpg', 'fsdgsdg32423545346fsdgsdg32423545346jknjfsdgsdg32423545346fsdgsdg32423545346jknjfsdgsdg32423545346fsdgsdg32423545346jknjfsdgsdg32423545346fsdgsdg32423545346jknjfsdgsdg32423545346fsdgsdg32423545346jknjfsdgsdg32423545346fsdgsdg32423545346jknjfsdgsdg32423545346fsdgsdg32423545346jknj', 28, '2023-02-16 14:04:04', NULL, NULL, 0),
 (161, 1, 'fsdgsdg32423545346fsdgsdg32423545346jknj', NULL, 'fsdgsdg32423545346fsdgsdg32423545346jknjfsdgsdg32423545346fsdgsdg32423545346jknjfsdgsdg32423545346fsdgsdg32423545346jknjfsdgsdg32423545346fsdgsdg32423545346jknjfsdgsdg32423545346fsdgsdg32423545346jknj', 28, '2023-02-16 14:04:17', NULL, NULL, 1),
-(162, 3, 'fsdgsdg32423545346fsdgsdg32423545346jknjfsdgsdg32423545346fsdgsdg32423545346jknjfsdgsdg32423545346fsdgsdg32423545346jknj', NULL, 'fsdgsdg32423545346fsdgsdg32423545346jknjfsdgsdg32423545346fsdgsdg32423545346jknjfsdgsdg32423545346fsdgsdg32423545346jknjfsdgsdg32423545346fsdgsdg32423545346jknjfsdgsdg32423545346fsdgsdg32423545346jknjfsdgsdg32423545346fsdgsdg32423545346jknjfsdgsdg32423545346fsdgsdg32423545346jknjfsdgsdg32423545346fsdgsdg32423545346jknjfsdgsdg32423545346fsdgsdg32423545346jknjfsdgsdg32423545346fsdgsdg32423545346jknjfsdgsdg32423545346fsdgsdg32423545346jknjfsdgsdg32423545346fsdgsdg32423545346jknjfsdgsdg32423545346fsdgsdg32423545346jknjfsdgsdg32423545346fsdgsdg32423545346jknj', 28, '2023-02-16 14:04:33', NULL, NULL, 1),
 (163, 4, 'fsdgsdg32423545346fsdgsdg54f654g65s4d6g4sd6g6jknj', '140d96c3105f7128e12d90098d0e6187.jpg', 'fsdgsdg32423545346fsdgsdg32423545346jknjfsdgsdg32423545346fsdgsdg32423545346jknjfsdgsdg32423545346fsdgsdg32423545346jknj', 28, '2023-02-16 14:04:56', NULL, NULL, 1),
 (164, 1, 'fsdgsdg32423545346fsdgsdg32423545346jknj', NULL, 'fsdgsdg32423545346fsdgsdg32423545346jknjfsdgsdg32423545346fsdgsdg32423545346jknjfsdgsdg32423545346fsdgsdg32423545346jknj', 28, '2023-02-16 14:05:02', NULL, NULL, 1),
 (165, 2, 'fgshbdfhbs', NULL, 'sdgasdgsdfhdsfhdghdfh', 28, '2023-02-16 14:05:09', NULL, NULL, 1),
 (166, 3, 'dsfsdfsdfsdf', NULL, 'sdfsdfsdfsdfsdf', 28, '2023-02-16 14:05:16', NULL, NULL, 1),
-(167, 3, 'fsdgsdg32423545346fsdgsdg32423545346jknj', NULL, 'fsdgsdg32423545346fsdgsdg32423545346jknjfsdgsdg32423545346fsdgsdg32423545346jknjfsdgsdg32423545346fsdgsdg32423545346jknj', 26, '2023-02-16 14:07:38', NULL, NULL, 0),
-(168, 2, 'fsdgsdg32423545346fsdgsdg32423545346jknj', NULL, 'fsdgsdg32423545346fsdgsdg32423545346jknjfsfsfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff', 26, '2023-02-16 14:07:38', NULL, NULL, 0),
-(169, 3, 'fsdgsdg32423545346fsdgsdg32423545346jknj', NULL, 'fsdgsdg32423545346fsdgsdg32423545346jknjfsdgsdg32423545346fsdgsdg32423545346jknjfsdgsdg32423545346fsdgsdg32423545346jknj', 26, '2023-02-16 14:07:49', NULL, NULL, 0),
-(170, 2, 'fsdgsdg32423545346fsdgsdg32423545346jknj', NULL, 'fsdgsdg32423545346fsdgsdg32423545346jknjfsfsfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff', 26, '2023-02-16 14:07:49', NULL, NULL, 0);
+(174, 1, '324', '140d96c3105f7128e12d90098d0e6187.jpg', '234324', 28, '2023-02-17 19:31:30', NULL, NULL, 1),
+(175, 1, '111', '', '11111', 28, '2023-02-21 11:05:25', NULL, NULL, 1),
+(176, 1, '222', '', '222', 28, '2023-02-21 11:56:54', NULL, NULL, 1),
+(177, 1, 'c', '', '   d', 28, '2023-02-21 16:59:22', NULL, NULL, 1),
+(178, 1, 'df22222', '', 'dfdf', 28, '2023-02-21 17:09:47', '2023-02-23 11:56:16', NULL, 1),
+(179, 1, '1111', '', '11111', 28, '2023-02-21 17:09:57', NULL, NULL, 1),
+(180, 4, '1111', '', '11111', 28, '2023-02-21 17:10:08', NULL, NULL, 0),
+(181, 1, '5555556', '', '555555555', 28, '2023-02-21 18:37:32', '2023-02-23 11:38:28', NULL, 0),
+(184, 1, 'sdf', '', 'sdfsdf', 28, '2023-02-21 18:40:59', NULL, NULL, 0),
+(190, 1, 'привет', '', 'Мир', 26, '2023-02-24 11:32:01', NULL, NULL, 1),
+(191, 1, 'вавыаы', '', 'ываываыва', 28, '2023-02-27 18:26:03', NULL, NULL, 1),
+(192, 1, 'Привет мир', '', 'Для более продвинутого поиска, предусмотрены специальные полнотекстовые индексы (или full-text search индексы). Mysql поддерживает полнотекстовые индексы для таблиц MyISAM. Поддержка Innodb добавлена с версии 5.6.4.', 28, '2023-03-01 07:46:45', NULL, NULL, 1),
+(193, 1, 'Описанная техника подсчета лучше всего работает для больших наборов текстов', '', 'Поиск по слову ``MySQL&#039;&#039; в предыдущем примере не приводит к каким-либо результатам, так как это слово присутствует более чем в половине строк. По существу, данное слово целесообразно трактовать как стоп-слово (т.е. слово с нулевой смысловой ценностью). Это наиболее приемлемое решение - запрос на естественном языке не должен возвращать каждую вторую строку из таблицы размером 1Гб.', 28, '2023-03-01 07:47:07', NULL, NULL, 1),
+(194, 1, 'sdfsdf', '', 'sdfsdf', 28, '2023-03-01 08:06:18', NULL, NULL, 1),
+(195, 1, 'Привет мир', '', '1111111111111111111', 28, '2023-03-01 08:12:47', NULL, NULL, 1),
+(196, 1, 'Привет мир', '', '222222222222222', 28, '2023-03-01 08:12:54', NULL, NULL, 1),
+(197, 1, '1111111', '', 'Привет мир', 28, '2023-03-01 08:13:06', NULL, NULL, 1),
+(198, 1, 'эта версия MySQL поддерживает полнотекстовый поиск и индексацию', '', 'Что касается MySQL 3.23.23, то эта версия MySQL поддерживает полнотекстовый поиск и индексацию. Полнотекстовые индексы в MySQL обозначаются как индексы типа FULLTEXT. Эти индексы могут быть созданы в столбцах VARCHAR и TEXT во время создания таблицы командой CREATE TABLE или добавлены позже с помощью команд ALTER TABLE или CREATE INDEX. Загрузка больших массивов данных в таблицу будет происходить намного быстрее, если таблица не содержит индекс FULLTEXT, который затем создается командой ALTER TABLE (или CREATE INDEX). Загрузка данных в таблицу, уже имеющую индекс FULLTEXT, будет более медленной.', 28, '2023-03-01 08:16:18', NULL, NULL, 1),
+(199, 1, 'Функция MATCH()', '', 'Функция MATCH() выполняет поиск в естественном языке, сравнивая строку с содержимым текста (совокупность одного или более столбцов, включенных в индекс FULLTEXT). Строка поиска задается как аргумент в выражении AGAINST(). Поиск выполняется без учета регистра символов. Для каждой строки столбца в заданной таблице команда MATCH() возвращает величину релевантности, т.е. степень сходства между строкой поиска и текстом, содержащимся в данной строке указанного в списке оператора MATCH() столбца.', 28, '2023-03-01 08:16:30', NULL, NULL, 1),
+(200, 1, 'Когда команда MATCH() используется в выражении WHERE', '', 'Когда команда MATCH() используется в выражении WHERE (см. пример выше), возвращенные строки столбцов автоматически сортируются, начиная с наиболее релевантных. Величина релевантности представляет собой неотрицательное число с плавающей точкой. Релевантность вычисляется на основе количества слов в данной строке столбца, количества уникальных слов в этой строке, общего количества слов в тексте и числа документов (строк), содержащих отдельное слово.', 28, '2023-03-01 08:16:46', NULL, NULL, 1),
+(201, 1, '1123', '', '324234', 31, '2023-03-02 14:31:47', NULL, NULL, 0),
+(202, 1, '1111', '', '111111', 31, '2023-03-02 14:31:58', NULL, NULL, 0),
+(203, 3, 'dsfsdfsdf', '', 'sdfsdfsdf', 31, '2023-03-02 14:32:17', NULL, NULL, 0),
+(204, 3, '1111', '', '1111', 31, '2023-03-02 14:32:25', NULL, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -144,9 +157,10 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`idUser`, `name`, `email`, `idgroup`, `registrationDate`, `password`, `gender`) VALUES
-(1, 'admin', 'admin@gmail.com', 1, '2023-02-05 14:39:29', 'admin', 'Мужчина'),
-(26, 'Vova', 'vova2802@mail.ru', 3, '2023-02-12 10:12:02', 'b285a7886cfdfb797b0d57c9d053c3f2', 'Мужчина'),
-(28, 'admin', 'admin@admin.ru', 1, '2023-02-13 08:35:50', 'a66abb5684c45962d887564f08346e8d', 'Мужчина');
+(1, 'admin', 'admin@gmail.com', 3, '2023-02-05 14:39:29', 'admin', 'Мужчина'),
+(26, 'Vova', 'vova2802@mail.ru', 1, '2023-02-12 10:12:02', 'b285a7886cfdfb797b0d57c9d053c3f2', 'Мужчина'),
+(28, 'admin', 'admin@admin.ru', 1, '2023-02-13 08:35:50', 'a66abb5684c45962d887564f08346e8d', 'Мужчина'),
+(31, 'Vladimir', 'vova111@mail.ru', 3, '2023-03-02 14:31:00', 'fb38287352092f2d4b0437e1da3bd4ac', 'Мужчина');
 
 -- --------------------------------------------------------
 
@@ -200,6 +214,7 @@ ALTER TABLE `news`
   ADD PRIMARY KEY (`idNews`),
   ADD KEY `FK_news_category_idCategory` (`idCategory`),
   ADD KEY `FK_news_users_idUser` (`idUser`);
+ALTER TABLE `news` ADD FULLTEXT KEY `IDX_news` (`theme`,`textContent`);
 
 --
 -- Индексы таблицы `user`
@@ -241,13 +256,13 @@ ALTER TABLE `comment`
 -- AUTO_INCREMENT для таблицы `news`
 --
 ALTER TABLE `news`
-  MODIFY `idNews` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=171;
+  MODIFY `idNews` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=205;
 
 --
 -- AUTO_INCREMENT для таблицы `user`
 --
 ALTER TABLE `user`
-  MODIFY `idUser` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `idUser` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT для таблицы `userGroup`

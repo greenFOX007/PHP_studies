@@ -1,5 +1,8 @@
 <?php
-
+namespace application\controllers;
+use \application\core\Controller;
+use \application\core\View;
+use \application\models\Model_Category;
 class Controller_Category extends Controller
 {
 

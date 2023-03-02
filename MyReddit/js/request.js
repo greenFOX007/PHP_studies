@@ -247,3 +247,117 @@
         
     }
 
+    function searchAction (){
+       
+        let body = new FormData(document.forms.search_form);
+
+
+        let url = `/main/searchNews`
+        
+        fetch(url,{
+            method:'POST',
+            body:body
+        })
+        .then((response)=>{
+          return  response.text()
+
+           
+        }).then((data)=>{
+            console.log(data)
+            // document.querySelector('#postNews_response').innerHTML = data
+            // if(data=="Успешно отправленно"){
+            //     setTimeout(()=>{
+            //         window.location.reload()
+            //     },1000)
+            // } 
+
+          
+        })
+        
+    }
+
+    function edit_rights (){
+        let formName =  'editUserRights_' + event.currentTarget.dataset.id
+        let body = new FormData(document.forms[formName]);
+    
+        let url = `/admin/editUserRights`
+
+        fetch(url,{
+            method:'POST',
+            body:body,
+        })
+        .then((response)=>{
+          return response.text()
+
+        }).then((data)=>{
+            console.log(data)
+         
+            if(data == "OK"){
+                setTimeout(()=>{
+                location.reload()
+                })
+            } 
+        })
+    }
+
+    // function editUserRights () {
+    //     let body = new FormData(document.forms.editUserRights);
+       
+    //     let url = `/admin/editUserRights`
+
+    //     fetch(url,{
+    //         method:'POST',
+    //         body:body,
+    //     })
+    //     .then((response)=>{
+    //       return response.text()
+
+    //     }).then((data)=>{
+    //         console.log(data)
+         
+    //         if(data == "OK"){
+    //             setTimeout(()=>{
+    //             location.reload()
+    //             },500)
+    //         } 
+    //     })
+    // }
+
+    function openUserEdit (){
+        document.getElementById('edit_user').classList.toggle('edit_user')
+
+    }
+
+
+    
+    function sortAdmin (urlpath){
+       
+            let sortBY =  event.currentTarget.dataset.sort
+            console.log(sortBY)
+            let params = new URLSearchParams(); 
+            params.set('sortBY', sortBY);
+           
+            let url = `/admin/`.concat(urlpath) 
+
+            fetch(url,{
+                method:'POST',
+                body:params
+            })
+            .then((response)=>{
+              return response.text()
+
+            }).then((data)=>{
+                console.log(data)
+             
+                if(data == "OK"){
+                    setTimeout(()=>{
+                    location.reload()
+                    })
+                } 
+    
+              
+            })
+        
+        
+    }
+

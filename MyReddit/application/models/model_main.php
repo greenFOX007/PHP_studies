@@ -1,4 +1,6 @@
 <?php
+namespace application\models;
+use \application\core\Model;
 
 class Model_Main extends Model
 {
@@ -41,7 +43,8 @@ class Model_Main extends Model
 
        $data['news'] = $result;
 
-       $sql2 = "SELECT COUNT(*) FROM news";
+       $sql2 = "SELECT COUNT(*) FROM news
+       WHERE news.moderationStatus = 1";
     
 
       $pages = $this->get_count($sql2);
@@ -153,7 +156,7 @@ class Model_Main extends Model
            
             if($categoryIDquary = $this->get_one($sql_IDCategory)['idCategory']){
               $sql_postnews = "INSERT INTO `news` (`idNews`, `idCategory`, `theme`, `pictureLink`, `textContent`, `idUser`, `createDate`, `changeDate`, `likeCount`, `moderationStatus`) 
-              VALUES (NULL, '$categoryIDquary', '$theme', '$pictureSRC', '$text', '$iduser', CURRENT_TIMESTAMP, NULL, NULL, '1')";
+              VALUES (NULL, '$categoryIDquary', '$theme', '$pictureSRC', '$text', '$iduser', CURRENT_TIMESTAMP, NULL, NULL, '0')";
 
               if($this->execute($sql_postnews)) {
                 echo "Успешно отправленно";
@@ -170,6 +173,38 @@ class Model_Main extends Model
     }
     
     }   
+  }
+
+
+  public function searchNews($page){
+    // header('Content-type:text/html; charset=UTF-8');
+    $firstNumber = ($page - 1) * $this->itemperpage;
+    if($_SERVER["REQUEST_METHOD"] == "GET"){
+      if(!empty($_GET['searchValue'])){
+        $value = $_GET['searchValue'];
+
+        $sql = "SELECT * FROM news
+        INNER JOIN category
+          ON news.idCategory = category.idCategory
+        INNER JOIN user
+          ON news.idUser = user.idUser
+      WHERE news.moderationStatus = 1 AND MATCH (theme,textContent) AGAINST ('$value')
+      ORDER BY news.createDate DESC LIMIT $firstNumber, $this->itemperpage";
+
+
+        $data['news'] = $this->get_many($sql);
+
+        $sql2 = "SELECT COUNT(*) FROM news
+        WHERE news.moderationStatus = 1 AND MATCH (theme,textContent) AGAINST ('$value')"; 
+
+        $pages = $this->get_count($sql2);
+
+        $data['pagesCount'] = ceil($pages/$this->itemperpage) ;
+        
+        return $data;
+
+      }
+    }
   }
 
 }

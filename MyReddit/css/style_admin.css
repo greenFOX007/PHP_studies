@@ -185,17 +185,11 @@ h4 {
     word-wrap:break-word !important;
 }
 
-.news_title_admin_p{}
 
 .news_create_admin,.news_status_admin,.news_create_admin_zag,.news_status_admin_zag{
     width:15%;
 }
 
-
-
-.news_status_admin{
-
-}
 
 .news_controls_btns{
     padding: 15px 20px;
@@ -226,9 +220,6 @@ h4 {
     margin-right:20px;
 }
 
-.form_folter_btn{
-
-}
 
 .visit_link{
     color:red;
@@ -304,3 +295,53 @@ h4 {
 	height: 100px;
 	resize:none;
 }
+
+.pagination{
+	display:flex;
+	border-radius:5px;
+	box-shadow: 0px -2px 20px 2px rgba(34, 60, 80, 0.2);
+	justify-content:center;
+}
+
+.pagination_link{
+	color:#393445;
+	
+	padding:5px 10px;
+	
+}
+
+
+
+.visit_link{
+	color:#e82121;
+	font-weight:bold;
+}
+
+.admin_link_conteiner{
+	display: flex;
+	justify-content: center;
+	padding: 5px 0;
+}
+
+.admin_link{
+	display: block;
+	padding: 10px 30px;
+	background-color: #dbd4f0;
+	border-radius: 5px;
+}
+
+.news_controls_btns_edit{
+	padding: 0 0 15px 20px;
+}
+
+.edit_user{
+	display: none;
+}
+
+.user_rights_select{
+	padding: 5px 10px;
+}
+
+/* .edit_user_open{
+	display: block;
+} */

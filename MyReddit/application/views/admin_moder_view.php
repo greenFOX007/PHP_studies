@@ -11,11 +11,11 @@
             echo "<h1>Все новости</h1>"; ?>
             
             <div class="news_meta_admin">
-                <button class="news_id_admin_zag">ID</button>
-                <button class="news_category_admin_zag">Категория</button>
-                <button class="news_title_admin_zag">Название</button>
-                <button class="news_create_admin_zag">Дата публикации</button>
-                <button class="news_status_admin_zag">Активность</button>
+            <button onclick="sortAdmin('sortModerationNews')" data-sort="idNews" class="news_id_admin_zag">ID</button>
+                <button onclick="sortAdmin('sortModerationNews')" class="news_category_admin_zag" data-sort="categoryName">Категория</button>
+                <button onclick="sortAdmin('sortModerationNews')" class="news_title_admin_zag" data-sort="theme">Название</button>
+                <button onclick="sortAdmin('sortModerationNews')" class="news_create_admin_zag" data-sort="createDate">Дата публикации</button>
+                <button onclick="sortAdmin('sortModerationNews')" class="news_status_admin_zag" data-sort="moderationStatus">Активность</button>
             </div>
             
             <?php

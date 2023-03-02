@@ -1,5 +1,9 @@
 <?php
-
+namespace application\controllers;
+use \application\core\Controller;
+use \application\core\View;
+use \application\models\Model_Admin;
+use \application\core\Route;
 class Controller_Admin extends Controller
 {
 
@@ -209,6 +213,22 @@ class Controller_Admin extends Controller
 		$idNews = $_POST['idNews'];
 			
 		 $this->model->sendForModerationNews($idNews);
+	}
+
+	function action_editUserRights(){
+		$userRights = $_POST['user_rights'];
+		$idUser = $_POST['idUser'];
+		
+	
+		$this->model->editUserRights($idUser,$userRights);
+	}
+
+	function action_sortMainNews(){
+		$this->model->sortMainNews();
+	}
+
+	function action_sortModerationNews(){
+		$this->model->action_sortModerationNews();
 	}
 
 	

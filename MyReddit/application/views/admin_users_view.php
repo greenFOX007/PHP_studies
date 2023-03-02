@@ -32,8 +32,18 @@
                         <div class="news_status_admin"><?=$row['registrationDate']?></div>
                     </div>
                     <div class="news_controls_btns">
-                        <a class="control_btn_admin" href="">Редактировать</a>
+                        <button class="control_btn_admin" onclick="document.getElementById('edit_user_<?=$row['idUser']?>').classList.toggle('edit_user')">Редактировать</и>
                         <button onclick="deleteUser()" class="control_btn_admin" data-id="<?=$row['idUser']?>" >Удалить</button>
+                    </div>
+                    <div class="news_controls_btns_edit edit_user" id="edit_user_<?=$row['idUser']?>">
+                        <form name="editUserRights_<?=$row['idUser']?>" class="user_rights_edit">
+                            <select class="user_rights_select" name="user_rights">
+                                <option value="1">Полный доступ</option>
+                                <option value="3">Чтение и запись</option>
+                            </select>
+                            <input type="hidden" name="idUser" value='<?=$row['idUser']?>'>
+                            <button data-id="<?=$row['idUser']?>" type="button" onclick="edit_rights()" class="control_btn_admin">Изменить</button>
+                        </form>
                     </div>
                 </div>
                     

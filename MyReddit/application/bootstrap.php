@@ -1,24 +1,20 @@
 <?php
-
-// подключаем файлы ядра
-require_once 'core/model.php';
-require_once 'core/view.php';
-require_once 'core/controller.php';
+namespace application\core;
+use \application\core\Route;
 require('./config.php');
-session_start();
-/*
-Здесь обычно подключаются дополнительные модули, реализующие различный функционал:
-	> аутентификацию
-	> кеширование
-	> работу с формами
-	> абстракции для доступа к данным
-	> ORM
-	> Unit тестирование
-	> Benchmarking
-	> Работу с изображениями
-	> Backup
-	> и др.
-*/
 
-require_once 'core/route.php';
+session_start();
+
+spl_autoload_register(function($class){
+    $path= str_replace('\\','/',$class . '.php');
+    if(file_exists($path)){
+        require $path;
+    }else{
+		Route::ErrorPage404();
+		exit();
+	}
+});
+
+
+
 Route::start(); // запускаем маршрутизатор

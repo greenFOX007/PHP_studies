@@ -124,6 +124,7 @@ h4 {
 }
 
 #content,.news_creator_container{
+	position: relative;
 	border-radius:5px;
 	margin-top:20px;
 	box-shadow: 0px -4px 23px 4px rgba(34, 60, 80, 0.2);
@@ -305,3 +306,53 @@ h4 {
 	padding:15px 40px;
 	border-radius:5px;
 }
+
+.search_form{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: absolute;
+	right: 55px;
+	top: 30px;
+	/* padding: 25px 40px; */
+}
+
+.search_input{
+	width: 300px;
+	padding: 10px 10px;
+	outline: none;
+    border: none;
+    border-radius: 5px;
+    background-color: #e8e8e8;  
+	margin-right: 10px;  
+}
+
+.search_btn{
+	width: 38px;
+	height: 38px;
+	border: none;
+	border-radius: 5px;
+	background-color: #e8e8e8;
+}
+
+
+.admin_link_conteiner{
+	display: flex;
+	justify-content: center;
+	padding: 5px 0;
+}
+
+.admin_link{
+	display: block;
+	padding: 10px 30px;
+	background-color: #dbd4f0;
+	border-radius: 5px;
+}
+
+.edit_user{
+	display: none !important;
+}
+
+/* .edit_user_open{
+	display: block;
+} */

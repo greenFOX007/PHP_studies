@@ -23,7 +23,9 @@
 		<?php 
 				if($_SESSION['isLogin']=='true'){
 					if(isset($_SESSION['idgroup']) && $_SESSION['idgroup']==1){ ?>
-					<a href="/">На сайт</a>
+					<div class="admin_link_conteiner">
+						<a class="admin_link" href="/">Вернуться на сайт</a>
+					</div>
 				<?php	}
 				}
 			?>

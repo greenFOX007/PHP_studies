@@ -1,21 +1,29 @@
 <?php
-
+namespace application\models;
+use \application\core\Model;
 class Model_Admin extends Model
 {
 
   public $itemperpage = ITEMS_PER_PAGE;
+
+  public function dataQuerySQL ($sortBY, $firstNumber, $where=null){
+    return "SELECT * FROM news
+    INNER JOIN category
+      ON news.idCategory = category.idCategory
+    INNER JOIN user
+      ON news.idUser = user.idUser
+      $where
+    ORDER BY $sortBY DESC LIMIT $firstNumber,  $this->itemperpage";
+  }
 	
 	public function get_dataPage($page)
 	{	
    
     $firstNumber = ($page - 1) *  $this->itemperpage;
 
-    $sql = "SELECT * FROM news
-        INNER JOIN category
-          ON news.idCategory = category.idCategory
-        INNER JOIN user
-          ON news.idUser = user.idUser
-        ORDER BY news.createDate DESC LIMIT $firstNumber,  $this->itemperpage";
+    $sortBY = isset($_SESSION['sortMainNews'])?$_SESSION['sortMainNews']:'createDate';
+
+    $sql = $this->dataQuerySQL($sortBY, $firstNumber);
 
     $data['news']= $this->get_many($sql);;
 
@@ -30,17 +38,11 @@ class Model_Admin extends Model
 
   public function get_dataFillter($fillterBy,$like,$page)
 	{	
-        
-    $itemsPerPage = ITEMS_PER_PAGE;
-    $firstNumber = ($page - 1) * $itemsPerPage;
-
-    $sql = "SELECT * FROM news
-        INNER JOIN category
-          ON news.idCategory = category.idCategory
-        INNER JOIN user
-          ON news.idUser = user.idUser
-        WHERE $fillterBy = '$like'
-        ORDER BY news.createDate DESC LIMIT $firstNumber, $itemsPerPage";
+    $sortBY = isset($_SESSION['sortMainNews'])?$_SESSION['sortMainNews']:'createDate';
+    
+    $firstNumber = ($page - 1) * $this->itemperpage;
+    $where = "WHERE $fillterBy = '$like'";
+    $sql = $this->dataQuerySQL($sortBY,$firstNumber,$where);
 
     $data['news'] = $this->get_many($sql);
 
@@ -53,42 +55,30 @@ class Model_Admin extends Model
  
     $pageCount = $this->get_count($sql2);
 
-    $data['pagesCount'] = ceil($pageCount/$itemsPerPage) ;
+    $data['pagesCount'] = ceil($pageCount/$this->itemperpage) ;
 				
 		return $data;
 	}
 
 
-    public function get_data_moderation($page)
-	  {	
-   
-      $firstNumber = ($page - 1) *  $this->itemperpage;
-
-      $sql = "SELECT * FROM news
-        INNER JOIN category
-          ON news.idCategory = category.idCategory
-        INNER JOIN user
-          ON news.idUser = user.idUser
-        WHERE moderationStatus = 0
-        ORDER BY news.createDate DESC LIMIT $firstNumber,  $this->itemperpage";
-
-      
-
+  public function get_data_moderation($page)
+  {	
+    $sortBY = isset($_SESSION['sortModerationNews'])?$_SESSION['sortModerationNews']:'createDate';
+    $firstNumber = ($page - 1) *  $this->itemperpage;
+    $sql = $this->dataQuerySQL($sortBY,$firstNumber,' WHERE moderationStatus = 0');
+    
     $data['news'] = $this->get_many($sql);
-
     $sql2 = "SELECT COUNT(*) FROM news
-       INNER JOIN category
+      INNER JOIN category
           ON news.idCategory = category.idCategory
         INNER JOIN user
           ON news.idUser = user.idUser 
         WHERE moderationStatus = 0 ";
-
     $pageCount = $this->get_count($sql2);
-
     $data['pagesCount'] = ceil($pageCount/ $this->itemperpage) ;
-		
-		return $data;
-	}
+    
+    return $data;
+  }
 
     public function get_data_usersFillter($fillterBy,$value,$page){
       $firstNumber = ($page - 1) *  $this->itemperpage;
@@ -120,16 +110,11 @@ class Model_Admin extends Model
 
     public function get_data_moderationFilter($fillterBy,$value,$page)
 	  {	
-
+      $sortBY = isset($_SESSION['sortModerationNews'])?$_SESSION['sortModerationNews']:'createDate';
       $firstNumber = ($page - 1) *  $this->itemperpage;
 
-        $sql = "SELECT * FROM news
-        INNER JOIN category
-          ON news.idCategory = category.idCategory
-        INNER JOIN user
-          ON news.idUser = user.idUser
-      WHERE moderationStatus = 0 AND $fillterBy = '$value'
-      ORDER BY news.createDate DESC LIMIT $firstNumber,  $this->itemperpage";
+      $where = "WHERE moderationStatus = 0 AND $fillterBy = '$value'";
+      $sql = $this->dataQuerySQL($sortBY,$firstNumber,$where);
 
       $data['news'] = $this->get_many($sql);
 
@@ -227,6 +212,18 @@ class Model_Admin extends Model
        $data = $this->get_one($sql);
 		
 		return $data;
+  }
+
+  public function editUserRights($idUser,$userRights){
+    header('Content-type:text/html; charset=UTF-8');
+
+    $sql = "UPDATE user
+    SET idgroup = '$userRights'
+    WHERE idUser = '$idUser' " ;
+
+    if($this->execute($sql)){
+      echo 'OK';
+    }
   }
 
 
@@ -350,18 +347,17 @@ class Model_Admin extends Model
     }   
   }
 
-  // public function get_editNews($idNews){
-  //   $sql = "SELECT * FROM news
-  //       INNER JOIN category
-  //         ON news.idCategory = category.idCategory
-  //       INNER JOIN user
-  //         ON news.idUser = user.idUser
-  //     WHERE news.idNews = '$idNews' ";
+  public function sortMainNews(){
+    $sortBY = $_POST['sortBY'];
+    $_SESSION['sortMainNews'] = $sortBY; 
+    echo 'OK';
+  }
 
-  //      $data = $this->get_one($sql);
-		
-	// 	return $data;
-  // }
+  public function sortModerationNews(){
+    $sortBY = $_POST['sortBY'];
+    $_SESSION['sortModerationNews'] = $sortBY; 
+    echo 'OK';
+  }
 
 
 }

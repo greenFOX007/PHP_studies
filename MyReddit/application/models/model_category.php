@@ -1,5 +1,6 @@
 <?php
-
+namespace application\models;
+use \application\core\Model;
 class Model_Category extends Model
 {
 
@@ -54,7 +55,7 @@ class Model_Category extends Model
       $countItems = $this->get_count($sql2);
 
       $data['pagesCount'] = ceil($countItems/$itemsPerPage) ;
-      $data['category'] = 'JavaScript';
+      $data['category'] = $category;
 		
 		return $data;
   }

@@ -27,13 +27,13 @@
                             if(isset($_SESSION['idUser']) && $row['idUser']==$_SESSION['idUser']){ ?>
                                 <button class="news_edit_btn">Редактировать</button>
                         <?php  } ?> 
-                        <div class="news_comment_container">
+                        <!-- <div class="news_comment_container">
                             <p class="news_comment_title">Комментарии</p>
                             <form class="form_comment" name=<?="form_comment_".$row['idNews']?>>
                                 <textarea class="text_comment" name="text_comment" placeholder="Оставьте комментарий"></textarea>
                                 <button class="comment_btn" type="button">Отправить</button>
                             </form>
-                        </div> 
+                        </div>  -->
                         
                     </div>
                     

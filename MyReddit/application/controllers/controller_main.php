@@ -1,4 +1,8 @@
 <?php
+namespace application\controllers;
+use \application\core\Controller;
+use \application\core\View;
+use \application\models\Model_Main;
 
 class Controller_Main extends Controller
 {
@@ -11,7 +15,6 @@ class Controller_Main extends Controller
 	
 	function action_index()
 	{	
-
 		$data = $this->model->get_dataPage(1);		
 		$this->view->generate('main_view.php', 'template_view.php', $data);
 	}
@@ -25,6 +28,12 @@ class Controller_Main extends Controller
 
 	function action_postNews(){
 		$this->model->post_news();
+	}
+
+	function action_searchNews (){
+		$page = intval($_GET['p'] ?? 1);
+		$data = $this->model->searchNews($page);
+		$this->view->generate('main_view.php', 'template_view.php', $data);
 	}
 	
 
